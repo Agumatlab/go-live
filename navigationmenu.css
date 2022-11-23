@@ -1,0 +1,282 @@
+/* @import url('https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900'); */
+
+.expand-menu{
+    position: fixed;
+    margin: 10px;
+    bottom: 0; right: 0;
+    z-index: 5;
+    width: fit-content;
+    height: fit-content;
+    /* background: gray; */
+    display: flex; flex-direction: row-reverse;
+    align-items:center;
+    gap: 10px;
+}
+.menu-opener{
+    font-size: 2em;
+    text-align: center;
+    transition: 0.5s;
+
+    color: black;
+    background: var(--gold2);
+    border: 10px solid var(--gold2);
+    border-radius: 100%; 
+    box-sizing: border-box;
+    
+    height: 70px;
+    line-height: 60px;
+    width: 70px;
+}
+
+.expand-menu:has(*.active,*:hover) .menu-opener{
+    background: var(--g3);
+    border-radius: 0 2.5em 2.5em 0; 
+    margin-left: -20px;
+    border: 2px solid var(--gold2);
+    line-height: 75px;
+}
+
+.menu-opener.active{ background: red;} 
+
+.expand-menu:has(*:hover,*.active) .navigation{opacity: 1;}
+
+.navigation
+{
+    transition: 1s;
+    width: 300px;
+    height: 70px;
+    background: var(--clr-body-bg);
+    position: relative;
+    display: flex;
+    opacity: 0;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    padding: 0px 0px;
+    box-shadow: 0px 5px 3px var(--gold2);
+}
+
+.navigation ul{
+    color: var(--clr-text);
+    display: flex;
+    /* background: white; */
+    border-radius: 5px;
+    padding: 0;
+}
+
+.navigation ul li{
+    position: relative;
+    list-style: none;
+    width: 70px;
+    height: 70px;
+    z-index: 1;
+    display: flex; vertical-align: middle;
+}
+
+.navigation ul li a{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    font-weight: 500;
+}
+
+.navigation ul li a .icon{
+    position: relative;
+    display: block;
+    
+    font-size: 2em;
+    text-align: center;
+    transition: 0.5s;
+
+    color: black;
+    
+    border-radius: 100%; 
+    height: 1.5em; line-height: 1.8em;
+    width: 1.5em;
+}
+
+.navigation ul li:is(:hover,.active) a .icon{transform: translateY(-35px);}
+.navigation ul li:hover  a .icon{ background: var(--g3);} 
+.navigation ul li.active a .icon{ background: var(--gold2);}
+
+.navigation ul li a .text{
+    position: absolute;
+    font-weight: 400;
+    font-size: 0.75em;
+    letter-spacing: 0.05em;
+    transition: 0.5s;  
+    opacity: 0;
+    height: 0;
+    transform: translateY(20px);
+}
+
+.navigation ul li:is(:hover,.active) a .text{  /*this was li:hover*/
+    opacity: 1;
+    transform: translateY(0px);
+}
+
+.navigation .layer{display: none;}
+
+/* ------------------------------------------------------- */
+
+.navigation:has(li.active.ask) .layer.ask{
+    display: block;
+    min-height: 50vh;
+    min-width: 20vw;
+    max-height: 80vh;
+    /* padding: 10px; */
+    background: var(--clr-body-bg);
+    border: 2px solid var(--gold1);
+    position: absolute;
+    bottom: 6em;
+    border-radius: 1em;
+    margin-bottom: 2em;
+}
+
+#domandone{
+    transition: 1s;
+    text-align: center;
+    box-shadow: 2px 2px 2px var(--clr-body-bg);
+    background: linear-gradient(180deg, var(--gold1) 0%, var(--clr-body-bg) 100%);
+}
+
+#domandone *{ border: none; color: var(--clr-text); transition: 1s;}
+#domandone *:is(textarea,select,button){ background-color: var(--clr-body-bg); }
+#domandone form{ display: flex; flex-direction: column; 
+    justify-content: center; padding: 10px 20px; gap:5px;
+    margin-top: 0px;;
+}
+#domandone h2{ font-size: min(10vh,4em); 
+    color: var(--clr-text);
+    text-shadow: 3px 3px var(--g2);
+    margin: 6px 0;
+}   
+
+#identitylog *{ display:none; opacity: 0; transition: 1s;
+    border-radius: 5px; padding:5px; overflow: hidden;
+    text-align: center;
+    min-width: 80%; color: var(--clr-text); background: var(--clr-body-bg);
+}
+#domandone:has(.toggle input:checked) #identitylog *{display: inline-block; opacity: 1;}
+
+#askmessage,#asktopic{border-radius: 5px; padding:5px;}
+
+#domandone ::placeholder{text-align: center; color:var(--clr-text);}
+#domandone input:hover::placeholder {color:white; }
+#domandone input:hover {background: var(--clr-heading); color:white;}
+
+#domandone input:invalid{animation: shake .3s; background: rgb(213, 129, 129);}
+@keyframes shake{
+    25%{transform: translateX( 4px);}
+    50%{transform: translateX(-4px);}
+    75%{transform: translateX( 4px);}
+}
+
+
+#domandone form button{
+    /* position: absolute; bottom:0; */
+    vertical-align:middle;
+    align-self: center;
+    width: 2em; height: 1.5em;
+    font-size: 3em;
+    inline-size: 3em; line-height: 1em;
+    border-radius: 1.5em;
+    border: 2px solid var(--gold1);
+}
+
+#domandone form button:hover{border: 3px solid var(--clr-heading);
+background: var(--clr-heading);}
+
+/* ---------- CSS for slider about anonymus user---------------- */
+.toggle {
+    --width: 150px;
+    --height: 30px;
+    margin-inline: auto;
+    padding:2px;
+    position: relative;
+    display: inline-block;
+    width: var(--width);
+    height: var(--height);
+    box-shadow: 0px 1px 3px var(--clr-heading);
+    border-radius: var(--height);
+    cursor: pointer;
+  }
+
+  .toggle input {display: none;}
+
+  .toggle .slider {
+    position: absolute;
+    top: 2px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: var(--height);
+    background-color: var(--clr-body-bg);
+    transition: all 0.4s ease-in-out;
+
+    background-size:     cover;  
+    background-repeat:   no-repeat;
+    background-position: center center;
+  }
+
+  .toggle .slider::before {
+    content: '';
+    position: absolute;
+    top: 2px; left: 2px;
+    width: calc(var(--height));
+    height: calc(var(--height));
+    border-radius: calc(var(--height) / 2);
+    background-color: var(--clr-heading);
+    
+    background-image: url(img_home/person-circle-outline.svg);
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3);
+    transition: all 0.4s ease-in-out;
+  }
+
+
+  .toggle input:checked+.slider::before {
+    transform: translateX(calc(var(--width) - var(--height)));
+    background-image: url(img_home/chatbubbles-outline.svg);
+  }
+
+
+  .toggle .labels {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    font-size: 12px;
+    font-family: sans-serif;
+    transition: all 0.4s ease-in-out;
+  }
+
+  .toggle .labels::after {
+    content: 'keep anonymus';
+    position: absolute;
+    right: 15px; top:25%;
+    color: var(--clr-text);
+    opacity: 1;
+    transition: all 0.4s ease-in-out;
+  }
+
+  .toggle .labels::before {
+    content: 'get a reply!';
+    position: absolute;
+    left: 15px; top:25%;
+    margin-inline: auto;
+    color: var(--clr-text);
+    opacity: 0;
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.4);
+    transition: all 0.4s ease-in-out;
+  }
+
+  .toggle input:checked~.labels::after {opacity: 0;}
+  .toggle input:checked~.labels::before { opacity: 1;}
+
+/* ----------------------------------------------------- */
+
+

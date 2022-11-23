@@ -1,0 +1,63 @@
+
+:root {
+    --clr-body-bg: rgb(255, 255, 255);
+    --clr-text: rgb(59, 59, 59);
+    --clr-heading: rgb(38, 168, 105);
+    --radio-color: rgb(255, 255, 255);
+}
+
+.visually-hidden {
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+  }
+  
+  .color-picker > fieldset {
+    border: 0;
+    display: flex;
+    gap: 1rem;
+    width: fit-content;
+    background: var(--g0);
+    padding: .5rem 1rem;
+    /* margin-inline: auto; */   /*margin inline auto mette gli oggetti al centro*/
+    border-radius: 0 0 1rem 1rem;
+  }
+  
+.color-picker input[type="radio"] {
+    appearance: none;
+    width: 1.5rem;
+    height: 1.5rem;
+    outline: 3px solid var(--radio-color, currentColor);
+    outline-offset: 3px;
+    border-radius: 50%;
+}
+  
+.color-picker input[type="radio"]:checked {
+    background-color: var(--radio-color);
+}
+  
+.color-picker input[type="radio"]#light {
+    --radio-color: rgb(214, 214, 214);
+}
+.color-picker input[type="radio"]#dark {
+    --radio-color: #1d342b;
+}
+  
+.dark {
+    --clr-body-bg: rgb(255, 255, 255);
+    --clr-text: rgb(59, 59, 59);
+    --clr-heading: rgb(38, 168, 105);
+    --radio-color: rgb(255, 255, 255);
+}
+  
+
+:root:has(#dark:checked) {
+    --clr-body-bg: rgb(32, 38, 33);
+    --clr-text: rgb(180, 230, 216);
+    --clr-heading: rgb(68, 134, 120);
+    --radio-color: #1d342b;
+}

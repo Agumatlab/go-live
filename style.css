@@ -1,0 +1,227 @@
+:root{
+    /* le future variabili */
+    --col_chiaro: rgb(251, 251, 251); /* da richiamare con var(--col_chiaro);*/
+
+    /* Gialli */
+    /* --g0: #FFFFCC;
+    --g1: #FFFF99;
+    --g2: #FFFF66;
+    --g3: #CCCC00;
+    --gold1: gold;
+    --gold2: goldenrod;
+    --myb: #001932;  */
+
+    --g0: #a6da88;
+    --g1: #5db64f;
+    --g2: #58b334;
+    --g3: #5ee12e;
+    --gold1: rgb(50, 197, 104);
+    --gold2: rgb(10, 155, 49);
+    --myb: #001932; 
+}
+
+
+
+html
+{
+    scroll-behavior: smooth;
+    font-family: helvetica, sans-serif;
+    overflow-x: hidden; 
+}
+
+body{
+
+    width: 100vw; overflow-x: hidden;
+    margin: 0px;
+    padding: 0px;
+}
+
+html{ overscroll-behavior-y: contain; }
+/* SCROLLBAR */
+::-webkit-scrollbar {width: 2px; }
+::-webkit-scrollbar-track {background: var(--radio-color);}
+::-webkit-scrollbar:hover {width: 20px; }
+::-webkit-scrollbar-thumb {background: var(--gold2); border-radius: 10px;}
+/* END of scrollbar */
+
+
+.fullScreen { width: 100vw; height: 100vh; }
+
+.middle{  
+    left: 0; 
+    right: 0; 
+    margin-left: auto; 
+    margin-right: auto;  
+    box-sizing: border-box;
+}
+
+.vertmid{ bottom: 0; 
+    top: 0; 
+    margin-top: auto; 
+    margin-bottom: auto;  
+}
+
+/* TOP NAVIGATION BAR ----------------------------- */
+nav{
+    position: fixed;
+    z-index: 5;
+    height: 3em;
+    top: -2.5em;
+    background: var(--radio-color);
+    width: 100%;
+    opacity: .5;
+    box-shadow: 0 3px 5px 5px var(--clr-header);
+}
+
+@media (max-width: 400px) {
+    nav{top: -1.5em; height: 4em;}
+} 
+
+nav:hover{
+    top: 0px;
+    opacity: 1;
+}
+
+/* MENU IN BASSO ----------------------------------------*/
+#askme{
+    position: fixed;
+    background: gray;
+    z-index: 10;
+    display: flex;
+    flex-direction: row;    
+    opacity: .8;
+    
+    color: white;
+    align-items: flex-end;
+    justify-content: center;
+
+    width: 4em; 
+    height: 4em;
+    border-radius: 2em;
+    bottom: 1em; right: 1em;
+}
+
+#askme:hover{
+    width: fit-content; 
+    min-width: 4em;
+    height: fit-content; }
+
+#askme:not(:hover) .opt{display:none;}
+
+.placeh{font-size: 3em;
+    transform: rotate(90deg);
+    align-self:center;}                    
+#askme:hover .placeh{ display: none;}
+
+#askme:has(.open){ background: none;}
+
+/* IMPOSTAZIONI PRE CLICK ICONA IN BASSO ----------------------- */
+.opt{ display: flex; flex-direction: column;
+    align-items: center;
+    width: 4em; height: 4em; 
+    border-radius: 2em;
+    background: black; 
+    justify-items: center;}
+ 
+.opt div{ display: none; }
+
+.opt h2{
+    flex-grow: 3;
+    background: black;
+    text-align: center;}
+ 
+/* QUANDO CLICKI SU UNA ICONA IN BASSO ------------------------ */
+.open {width: 30em; height: 30em; 
+    display:flex; border-radius: 2em;
+     display: flex; flex-direction: column-reverse;
+     justify-content: center; padding: auto;
+     row-gap: 1px;
+    }
+
+.open div{display: inline-block; color:black;
+    width: 100%;  border-radius: 1em 1em 0 0;
+    height: 100%;  background: white; 
+    }
+
+.open h2{ width: 2em; height: 1em; }
+
+/* CSS PER IMAGE SLIDING ---------------------------------------*/
+#half{ background: red; opacity: .5;}
+#edge{width:4px; background:black;
+    border: 1px solid black;
+    height: 50vh;
+    position:relative; left:100%;
+}
+
+#edge:hover{ width: 8px;}
+/* end of img sliding */
+
+
+
+/* STYLING DEL TEAM ---------------------------------------------*/
+/* #team{ 
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly; 
+    align-content:center;
+    vertical-align:middle;
+    gap: 5px;
+}
+
+#team>div{
+    width:100px; height: 100px;
+    border-radius: 50px; background: yellow; 
+}
+
+#team>div:hover { background: red;
+    width:300px; height: 300px; border-radius: 150px;
+}
+
+#team:has(div:hover)>div:not(:hover){background: green;
+width:5px; height: 5px; border-radius: 0px;} */
+/*END of STYLING TEAM*/
+
+
+/* READ MORE STYLING ------------------------------ */
+
+    /* .preview{
+        font-size: 45px;
+        display: flex;
+        flex-direction: row;
+        
+        justify-content: space-between;
+        align-content: flex-start;
+        align-items: flex-start;
+        padding: 10px 40px;
+        
+    }
+
+    .expand{
+        height: fit-content;
+        background: red;
+        border-radius: 0 0 10px 10px;
+        
+    } 
+
+    .readmorecheck{
+        display: none; 
+    }
+
+    .expand:has(.readmorecheck:checked) .expandtarget{
+        display: inline-block;
+    }
+    
+    .readmorelabel:before {
+        content: '⤸ Show more';
+        font-size: .5em;
+        justify-content: center;
+    }
+    .readmorecheck:checked ~ .readmorelabel:before{ 
+        content: "⮤ Show less";}
+    
+    .expandtarget{ display: none; 
+        margin: 10px 40px;
+        font-size: 30px;
+        background: yellow;
+    } */
+/* END of read more */

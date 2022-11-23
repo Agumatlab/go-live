@@ -1,0 +1,83 @@
+#p5{
+    display: flex;
+    position: relative;
+    flex-direction: row;
+    flex-wrap: wrap; 
+    background: var(--clr-body-bg);
+
+    width: 100%;
+    
+    justify-content: center;
+    align-items: baseline;
+
+}
+
+#p5 *{
+        max-width: 600px;
+        flex-basis: 100vw;
+}
+
+
+#p5decoration{
+    height: 70vw;
+    max-height: 500px;
+    background-image: url(img_home/p5-decogreen.png);
+    background-size:contain;  
+    background-repeat:   no-repeat;
+    background-position: center center;
+    
+    padding: 80px 40px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background: yellow; */
+    /* border: 1px solid  black; */
+
+}
+
+#gotodemo{
+    width: 90%;
+    height: 90%;
+    min-height: 180px;
+    border-radius: 5px;
+    background: var(--g2);
+    opacity: .9;
+}
+
+#p5offer{
+    box-sizing: border-box;
+    text-align: center;
+
+    border-right: 5px solid var(--g3);
+    color: var(--clr-text);
+    
+    width: 100%;
+    overflow-x: hidden;
+    border-spacing: 10px;
+
+}
+
+#p5offer *{margin-right: 10%;}
+
+#p5offer h2{ 
+    color: var(--g2);
+    font-size: 50px;
+}
+
+#p5layers{
+    width: 500px;
+    height: 80vh;
+    align-self: center;
+    background-image: url(img_home/p5-layer-green.png);
+    background-size: contain;  
+    background-repeat:   no-repeat;
+    background-position: center center;
+    animation: levitating 1s ease-in-out infinite alternate;
+    /* animation-direction: alternate; */
+}
+
+@keyframes levitating {
+    from {translate: 0px 5px;}
+    to {translate: 0px -5px;}
+}

@@ -1,0 +1,92 @@
+#p2{
+    background: var(--clr-body-bg);
+    display: flex;
+    position: relative;
+    overflow: hidden;
+}
+#p2main{ 
+    position: absolute;
+    
+    width: 80vw;
+    min-height: 60vh;
+
+    /* max-height: 100vh; */
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    overflow-y: hidden;
+}
+
+#p2line{
+    width: 6px; height: 90%;
+    background: var(--clr-text);
+    border-radius: 3px;
+    align-self: center;
+}
+
+.p2child{ flex-basis: 40%; padding: 0px 15px;}
+
+
+#p2-1{text-align: right; align-self: baseline; padding-top: 5%;}
+#p2-2{text-align: left; align-self:flex-end; 
+    margin-bottom: 5%;
+    z-index: 4;
+    background: var(--clr-body-bg); border-radius: 2em;
+}
+
+@media (max-width:400px){
+    #p2-2{display: none;}
+    #p2-1{text-align: center; }
+}
+
+#p2main h2 {
+    font-size: 50px;
+    color: var(--gold1);
+    margin-bottom: 0;
+    margin-top: 0px;
+}
+
+#p2main p {
+    font-size: 1em;
+    color: var(--clr-text);
+    margin-top: 0;
+}
+
+#p2waves{
+    position: absolute;
+    width: 100vw;
+    height: 55vw;
+    bottom: 0;
+    left: -50%;
+    
+    /* opacity: .5; */
+    background-image: url(img_home/wavy-green.svg);
+    background-size:     cover;  
+    background-repeat:   no-repeat;
+    background-position: center center;
+    transform-origin: bottom;
+    rotate: 28deg;
+    
+}
+
+@media (max-width:400px){
+    #p2waves{ 
+        rotate: 0deg;
+        left: 0; z-index: 0;
+    }
+
+}
+
+#p2logo{
+    /* background-image: ; */
+    background-size:     cover;  
+    background-repeat:   no-repeat;
+    background-position: center center;
+    position: absolute;
+    width: 15vw;
+    height: 15vw;
+    right: 60vw;
+    bottom: 25vh;
+}

@@ -1,0 +1,160 @@
+
+#first-to-see{  /* <--it is #p1 */
+
+    background: var(--g0); 
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+
+    background-image: url(img_home/layered-peaks-haikei.png);
+    background-size: cover;  
+}
+
+#welcome{
+    color: var(--gold2);
+    /* border: 2px solid black; */
+    position: absolute;
+    max-width: max(35vw, 300px);
+    top: 15%;
+    right: 55vw;
+    left: auto;
+    font-size: min(60px,10vw);
+    text-align: right;
+    z-index: 2;
+    transition: opacity 1s;
+}
+
+#logo-home{
+    background-size:contain;  
+    background-repeat:   no-repeat;
+    background-position: center center;
+    background-image: url(img_home/logo_simple.png);
+
+    max-width: 100px;
+    max-height: 100px;
+    width: 30vw; height: 30vw;
+    
+    position: relative;
+    left: 25vw; top:23vh;
+    transition: opacity 1s;
+    z-index: 1;
+}
+
+@media (max-width: 400px){
+    #logo-home{ left: 65%; top:10vh;}
+    #welcome{ text-align: left; left: 30px; width: 80vw}
+}
+
+#scroller{
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    bottom: 0px;
+    display: flex; 
+    flex-direction: column;
+    justify-content: center;
+}
+
+#scroller>*:nth-child(3){ 
+    position: absolute;
+    top:0; left:0; right: 0; margin: auto;
+    background: var(--gold1);
+    width: 20px; height: 20px;
+    border-radius: 10px;
+
+    animation: levitating 1s ease-out infinite alternate;
+}
+
+#scroller>*:nth-child(2){ 
+    position: absolute;
+    top:30%; left:0; right: 0; margin: auto;
+    background: var(--gold1);
+    width: 20px; height: 20px;
+    border-radius: 10px;
+   
+    animation: levitating 1s ease-out infinite alternate;
+}
+
+#scroller>*:nth-child(1){ 
+    background: var(--gold2);
+    position: absolute;
+    width: 100%; height: 100%;
+    bottom: 0; top:60%;
+    border-radius: 100% 100% 0 0;
+}
+
+#canvasMain{
+    position: fixed;
+    top: 0; bottom:0;
+    margin-top: auto; 
+    margin-bottom: auto;
+
+    --lato: min(50vh,50vw);
+    width: var(--lato);
+    height: var(--lato);
+
+    overflow: visible;
+    transition:all .5s;
+
+    /* border: 3px solid black;
+    background: violet; */
+}
+
+#canvasMain:has(.webgl:hover) #sun{ 
+    box-shadow: 0px 0px 40px 20px var(--g1);
+}
+#first-to-see:has(.webgl:hover)>:is(#welcome,#logo-home){ opacity: .1;}
+
+.not-at-top{ 
+    transition:all 2s ease;
+    z-index: 3;
+    left: max(55vw,600px);
+    scale: 1.1;
+    opacity: .9;
+}
+
+#sun{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: var(--g1);
+    /* border: 10px solid v; */
+}
+
+#p3 ~ div{ z-index: 4; }
+
+/* CANVAS DELLA ZOLLA INTERATTIVA ------------------------------- */
+/* .webgl:hover{background: red;} */
+.webgl 
+{   
+    position: relative;
+    transition:all .5s;
+    transform-origin: center center;
+
+    border-radius: 1em;
+    width: var(--lato) !important;
+    height: var(--lato) !important;
+
+    top: -100%; 
+    scale: 1.5; 
+    overflow: visible;
+
+    /* background: red; */
+}
+
+#canvasMain:not(.not-at-top) .webgl:hover{scale:1.65;}
+
+/* -------------------------------- */
+/* #fakeEarth{
+    display: none;
+
+    background-size:contain;  
+    background-repeat:   no-repeat;
+    background-position: center center;
+    background-image: url(img_home/fakeEarth.svg);
+    position: absolute;
+    top: -5%; left: -25%;
+    width: 150%;
+    height: 150%;
+    border: 3px solid red; 
+} */

@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4AGER Home</title>
+</head>
+    
+<body>
+
+    <!-- notes for the future -->
+    <!-- contact@4ager.org -->
+    <!-- "Satélite" (https://skfb.ly/6WNJE) by Jéssica Magno is licensed under CC Attribution-NonCommercial-NoDerivs (http://creativecommons.org/licenses/by-nc-nd/4.0/). -->
+    <!-- Satellite by Poly by Google [CC-BY] via Poly Pizza -->
+
+    <!-- NavBar on top page -->
+    <nav id="navbar" class="transition">   
+        <form class="color-picker" action="">
+            <fieldset>
+              <label for="light" class="visually-hidden">Light</label>
+              <input type="radio" name="theme" id="light" checked>
+          
+              <label for="pink" class="visually-hidden">Dark</label>
+              <input type="radio" name="theme" id="dark">
+            </fieldset>
+          </form>
+    </nav>
+    
+    <!-- LAYOUT MENU ICONE -->
+    <div class="expand-menu">
+    <div class="menu-opener list"><ion-icon name="ellipsis-vertical-outline"></ion-icon></div>
+    <div class="navigation">
+        
+            <div id="domandone" class="layer ask" style="font-size:.7em;">
+
+                <h2>Write to us!</h2>
+                <form action="https://getform.io/f/f2abf4cd-5814-4437-b5fb-766b1f4fafd6" method="POST">
+                    
+                    <label class="toggle">
+                        <input type="checkbox">
+                        <span class="slider">
+                        </span>
+                        <span class="labels" data-on="ON" data-off="OFF"></span>
+                    </label>
+                    
+                    <fieldset name="identity" id="identitylog">
+                        <input type="text" name="name" pattern="[A-z ]+" placeholder="My friends call me...">
+                        <input type="email" name="email"  placeholder="-I want a reply at this Email-">
+                        <input type="tel" name="phone" pattern="\+?[0-9]{1,11}" placeholder="-Or at this phone-" pattern=[0-9\+]>
+                    </fieldset>
+
+                    <label for="topic">Categorize your message</label>
+                    <select name="topic" required="required" id="asktopic">
+                        <option value="business">(business) -"You should hear my idea..."</option>
+                        <option value="claim">(claim) -"You need to fix this, guys!"</option>
+                        <option value="promote" selected>(promote) -"Keep up like this! Nice work"</option>
+                        <option value="other">(other) -"Actually..."</option>
+                    </select>
+
+                    <textarea id="askmessage" name="message" rows="15" cols="30" maxlength="2000" 
+                        onkeyup="this.value = this.value.replace(/[&*<>]/g, '')"
+                        placeholder=
+"You can send a message from here! Write in any language, but wisely! (special chars forbidden)
+Dear 4Ager staff, ..."
+                        required="required" style="overflow:auto"></textarea>
+                    <button type="submit"><ion-icon name="paper-plane-outline"></ion-icon></button>
+                </form>
+            </div>
+
+        <!-- User Actions on menu -->
+        <ul> 
+            <li class="list">
+                <a>
+                    <span class="icon"><ion-icon name="help-circle-outline"></ion-icon></span>
+                    <span class="text">Contacts</span>
+                </a>
+            </li>
+            <li class="list ask">
+                <a>
+                    <span class="icon"><ion-icon name="chatbubble-ellipses-outline"></ion-icon></span>
+                    <span class="text">Ask</span>
+                </a>
+            </li>
+            <li class="list">
+                <a>
+                    <span class="icon"><ion-icon name="layers-outline"></ion-icon></span>
+                    <span class="text">Demo</span>
+                </a>
+            </li>
+            <li class="list" id="navmoveup">
+                <a href="#">
+                    <span class="icon"><ion-icon name="arrow-up-circle-outline"></ion-icon></span>
+                    <span class="text">Move Up</span>
+                </a>
+            </li>
+            <div class="indicator"></div>
+        </ul>
+    </div>
+    </div>
+    
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+    <!------------------------------  -->
+
+
+        <!-- first to see (page1) -->
+        <div id="first-to-see" class="fullScreen">
+            <div id="welcome">
+                Welcome to<br>4AGER
+            </div>
+            <div id="logo-home"></div>
+
+            <div id="canvasMain" class="middle">
+            <div id="sun"></div>
+            <div id="fakeEarth"></div>
+            <canvas class="webgl"></canvas>
+            </div>
+            
+            <div id="scroller" class="middle">
+                <div></div> <div></div> <div></div> <div></div>
+            </div>
+        </div>
+
+        <!-- (page 2) -->
+        <div id="p2" class="fullScreen">
+            <div id="p2main" class="middle vertmid">
+                <div id="p2-1" class="p2child">
+                    <h2>Chi Siamo</h2>
+                    <p>4AGER è una startup con una visione chiave: monitorare terreni agricoli e migliorare la performance dei produttori con tecnologia satellitare. Grazie ai nostri servizi gli agricoltori ottengono ricavi complementari, entrando nel processo di certificazione Label Bas Carbone, sponsorizzato dal Ministero dell’Agricoltura Francese.
+                    </p>
+                </div>
+                <div id="p2line"></div>
+                <div id="p2-2" class="p2child">
+                    <h2>Siamo simpatici</h2>
+                    <p>Siamo giovani carini belli teneri e coccolosi. Non scendiamo a compromessi e non abbiamo molti soldi, crediamo nelle nostre capacità e insieme conseguiremo il successo con zero sforzo
+                    </p>
+                </div>
+            </div>
+            <div id="p2waves"></div>
+            <div id="p2logo"></div>
+        </div>
+
+        <!-- (page 3) -->
+        <div id="p3" >
+            <div id="p3main" class="middle vertmid">
+            <div>
+                <h2>We believe in<br>
+                Customer Satisfaction</h2>
+                <p>A partire dal sito web stesso, quindi speriamo che vada bene, è faticoso dover rifare tutto da capo, non lo auguro a nessuno.
+                </p>
+                </div>
+                <div id="p3menu">
+                    <div id="p3-1" class="p3child">
+                        <div class="p3 ico"></div>
+                        01
+                        <h3>Avere idee</h3>
+                        <p>È semplice, per farsi venire un’idea bisogna soltanto farsela venire</p>
+                    </div>
+                    <div id="p3-2" class="p3child">
+                        <div class="p3 ico"></div>
+                        02
+                        <h3>Avere altre idee</h3>
+                        <p>È semplice, per farsi venire un’idea bisogna soltanto farsela venire</p>
+                    </div>
+                    <div id="p3-3" class="p3child">
+                        <div class="p3 ico"></div>
+                        03
+                        <h3>Avere molte idee</h3>
+                        <p>È semplice, per farsi venire un’idea bisogna soltanto farsela venire</p>
+                    </div>
+                    <div id="p3-4" class="p3child">
+                        <div class="p3 ico"></div>
+                        04
+                        <h3>Avere buone idee</h3>
+                        <p>È semplice, per farsi venire un’idea bisogna soltanto farsela venire</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- (page 4) -->
+        <div id="p4">
+            <div id="msg" class="middle">Le tecniche agricole attuali emettono sempre più gas a effetto serra. 
+                Per affrontare il problema, 4AGER aiuta i produttori nella transizione ecologica, 
+                con uno sguardo attento al rendimento.
+            </div>
+
+            <div>
+                <div id="p4head">
+                    <div class="up line"></div>
+                    <div id="p4quest">Perché sceglierci?</div>
+                    <div class="up line"></div>
+                </div>
+                <div id="p4cont">
+                    <div id="p4-1"  class="p4child">
+                        <div class="ico"></div>
+                            <h2>Risparmia</h2>
+                            <p> Minimizza gli spostamenti delle macchine agricole, riduci gli sprechi di materiali individuando precise zone di operazione.</p>
+                    </div>
+                    <div id="p4-2" class="p4child">
+                        <div class="ico"></div>
+                            <h2>Ottimizza</h2>
+                            <p>Aiutiamo a compiere le scelte migliori analizzando la salute delle piante e le condizioni meteo.</p>
+                    </div>
+                    <div id="p4-3" class="p4child">
+                        <div class="ico"></div>
+                            <h2>Migliora</h2>
+                            <p>Monitora al meglio l’impronta di gas a effetto serra dele colture.</p>
+                    </div>
+                    <div id="p4-4" class="p4child">
+                        <div class="ico"></div>
+                        <h2>Guadagna</h2>
+                        <p>Iniziare un progetto inquadrato nel Label Bas Carbone permette ai produttori di ottenere finanziamenti extra.</p>
+                    </div>  
+
+                </div>
+                <div class="down line"></div>
+            </div>
+        </div>
+
+
+        <!-- (page 5) -->
+        <div id="p5" class="middle">
+            <div>
+                <div id="p5decoration">
+                    <div id="gotodemo"></div>
+                </div>
+                <div id="p5offer">
+                    <h2>La migliore offerta</h2>
+                    <p>4AGER fornisce ai produttori un’applicazione web per monitorare i terreni in tempo reale. Il trattamento di immagini satellitari migliora la gestione delle operazioni, e fornisce visibilità rapida su indici di salute delle piante, stime dello stoccaggio di carbonio nel suolo, e dati metereologici accurati.</p>
+                </div>
+            </div>
+            <div id="p5layers"></div>
+        </div>
+
+
+        <!-- (page 6) -->
+        <div id="p6" class="middle">
+            <div class="p6dot"></div>
+            <div class="p6dot"></div>
+            <div id="founders" class="vertmid">
+                <input type="radio" name="person" id="f1" checked>
+                <input type="radio" name="person" id="f2">
+                <input type="radio" name="person" id="f3">
+                <input type="radio" name="person" id="f4">
+                <input type="radio" name="person" id="f5">
+                <input type="radio" name="person" id="f6">
+             </div>
+            <div id="p6main">
+
+
+                <div id="portrait">
+                    <div id="portraitborder"></div>
+                    <div id="p6photo"></div>
+                    <div id="p6label">
+                        <div><b>Enguerrand</b><br>Product owner</div>
+                        <div><b>Vishal</b><br>Product owner</div>
+                        <div><b>Nicola</b><br>Image processing expert</div>
+                        <div><b>Ilhui</b><br>Marketing manager</div>
+                        <div><b>Elisa</b><br>Co-founder & Operations manager</div>
+                        <div><b>Federico</b><br>Co-founder & Product manager</div>
+                    </div>
+                </div>
+
+                <div id="catchphrase">
+                    <h1>Perché sono entrato in questo team?</h1>
+                        <span class="quotemark" id="left">&#8220;</span>
+                        <p>Bhe è semplice, una sera il mio amico mi ha sfidato a braccio di ferro, dicendo che se avessi perso sarei dovuto diventare il suo braccio destro. Ed eccomi qui.</p>
+                        <span class="quotemark" id="right">&#8221;</span>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- (page 7) -->
+        <div id="p7">
+
+            <div id="p7msg">i nostri satelliti sono una<br><b>bomba pazzesca</b></div>
+            <div id="p7main" class="middle">
+                <div class="p7child"><div id="p7t1" class="triangle"></div><div id="p7s1" class="p7ico"></div>
+                    <div class="info">Scrivi qualcosa di curioso a riguardo</div>
+                </div>
+                <div class="p7child"><div id="p7t2" class="triangle"></div><div id="p7s1" class="p7ico"></div>
+                    <div class="info">Scrivi qualcosa di curioso a riguardo</div>  
+                </div>
+                <div class="p7child"><div id="p7t3" class="triangle"></div><div id="p7s1" class="p7ico"></div>
+                    <div class="info">Scrivi qualcosa di curioso a riguardo</div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- (page 8) -->
+        <div id="p8">
+            <div id="p8main" class="middle">
+                <div id="closing">
+                    <div class="p8small">spero che ti sia piaciuto</div>
+                    <div class="p8big">Il nostro progetto</div>
+                    <div class="p8lowest">ogni tassello ha la sua importanza</div>
+                </div>
+
+                <div id="mosaic"></div>
+                <div id="timeplan">
+                    <div><div class="p8node"></div> <div>Creazione progetto 4AGER</div> </div>
+                    <div><div class="p8node"></div> <div>Integrazione nel programa di pre-incubazione Copernicus</div> </div>
+                    <div><div class="p8node"></div> <div>Sviluppo idea e soluzione</div> </div>
+                    <div><div class="p8node"></div> <div>Ricerca di partners & Iterazioni sulla soluzione</div> </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="p9" class="fullScreen"></div>
+    
+
+</body>
+</html>

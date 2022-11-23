@@ -1,0 +1,134 @@
+#p8{
+    
+    width: 100%;
+    position: relative;
+    padding: 40px 0;
+    background: var(--g1);
+
+}
+
+#p8main{
+    background: rgb(32, 32, 33);
+    border-radius: 20px;
+    padding-top: 50px;
+    width: 95vw;
+    min-height: 95vh;
+
+    margin-inline: auto; 
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items:center;
+    overflow-y:visible;
+
+}
+
+#closing{ 
+    color: whitesmoke;
+    height: fit-content;
+
+    z-index: 1;
+    width: 200px;
+    text-align: right;
+    display: flex; 
+    flex-direction: column;
+    flex-wrap: wrap;
+    
+    /* background: red; */
+}
+
+#closing>* {
+
+    background:  rgba(0,0,0,.8); 
+    border-radius: 5px;
+
+    padding: 5px 10px;
+    /* width: min(max-content,90vh); */
+    width: max-content;
+
+    max-width: 60vw;
+    white-space: nowrap;
+    justify-self: left;
+    border-radius: 5px;
+    margin-bottom: 5%;
+
+}
+
+.p8big{ justify-self: right; font-size: min(60px,10vw); border-radius: 5px;}
+
+#closing .p8small{ background: transparent;}
+#closing .p8lowest{ margin-left: 50%;}
+
+
+#mosaic{
+    /* position: relative; */
+    /* background: red; */
+
+    min-width: max(70vw,500px);
+    min-height: max(70vh,500px);
+
+    /* max-width: min(100vw,900px); 
+    max-height: min(60vw,540px); */
+
+    background-image: url(img_home/mosaic-small.png);
+    background-size:    contain;
+    background-repeat:   no-repeat;
+    background-position: center center;
+
+}
+
+#timeplan{
+    
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-direction:unset;
+
+    flex-wrap: wrap;
+    justify-content: right;
+}
+
+#timeplan>*{
+    border-bottom: 10px dotted var(--gold1);
+    padding-bottom: 30px;
+    flex-basis: 15%;
+    /* border: 2px solid white; */
+    
+    color: white;
+    display: flex;
+    flex-direction: column;
+    /* transform: rotate(25deg); */
+
+}
+
+#timeplan>*>*:nth-child(2){
+    color: white;
+    background:  rgba(0,0,0,.3); 
+    border-radius: 5px;
+    padding: 10px;
+    
+    width: min(14em,80vw);
+    transform: rotate(-10deg);
+    translate: 0 -30px;
+    text-align: center;
+    
+}
+
+.p8node{ 
+    
+    position: relative;
+    bottom: -90%;
+    left: -5px;
+    width: min(60px,10vw); 
+    height: min(60px,10vw);
+    border-radius: 40px;
+    background: var(--clr-body-bg);
+    border: 10px solid var(--gold1);
+}
+
+@media (max-width: 400px){
+    #timeplan>*{border: none; border-left: 3px dotted var(--gold1);} 
+    #timeplan>*>*:nth-child(2){ transform: rotate(0deg);}
+    #closing .p8lowest{ margin: 0;}
+}
