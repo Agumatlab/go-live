@@ -111,7 +111,9 @@
     left: max(55vw,600px);
     scale: 1.1;
     opacity: .9;
+    pointer-events: none;
 }
+
 
 #sun{
     width: 100%;
